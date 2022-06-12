@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <select id="country" onchange="update()">
+      <option value="AFGHANISTAN">AFGHANISTAN</option>
+
+      <option value="CANADA">CANADA</option>
+
+      <option value="INDIA">INDIA</option>
+
+      <option value="JAPAN">JAPAN</option>
+
+      <option value="NEPAL">NEPAL</option>
+    </select>
+    <div id="list"></div>
+  </body>
+  <script>
+    function update() {
+      var select = document.getElementById("country");
+      var option = select.options[select.selectedIndex];
+      // console.log("option:", option.value);
+      var list = document.getElementById("list");
+      if (option.value == "AFGHANISTAN") {
+        list.innerHTML = '';
+        let ul = document.createElement("ul");
+        let li1 = document.createElement("li");
+        li1.innerText = "Kabul";
+        let li2 = document.createElement("li");
+        li2.innerText = "Kandahar";
+        let li3 = document.createElement("li");
+        li3.innerText = "Khost";
+        ul.append(li1, li2, li3);
+        list.append(ul);
+      } else if (option.value == "CANADA") {
+        list.innerHTML = '';
+        let ul = document.createElement("ul");
+        let li1 = document.createElement("li");
+        li1.innerText = "Alberta";
+        let li2 = document.createElement("li");
+        li2.innerText = "Manitoba";
+        let li3 = document.createElement("li");
+        li3.innerText = "Nunavut";
+        ul.append(li1, li2, li3);
+        list.append(ul);
+      } else if (option.value == "INDIA") {
+        list.innerHTML = '';
+        let ul = document.createElement("ul");
+        let li1 = document.createElement("li");
+        li1.innerText = "Karnataka";
+        let li2 = document.createElement("li");
+        li2.innerText = "Tamilanadu";
+        let li3 = document.createElement("li");
+        li3.innerText = "Kerala";
+        ul.append(li1, li2, li3);
+        list.append(ul);
+      } else if (option.value == "JAPAN") {
+        list.innerHTML = '';
+        let ul = document.createElement("ul");
+        let li1 = document.createElement("li");
+        li1.innerText = "Osaka";
+        let li2 = document.createElement("li");
+        li2.innerText = "Shiga";
+        let li3 = document.createElement("li");
+        li3.innerText = "Shimane";
+        ul.append(li1, li2, li3);
+        list.append(ul);
+      } else if (option.value == "NEPAL") {
+        list.innerHTML = '';
+        let ul = document.createElement("ul");
+        let li1 = document.createElement("li");
+        li1.innerText = "Banke";
+        let li2 = document.createElement("li");
+        li2.innerText = "Karnali";
+        let li3 = document.createElement("li");
+        li3.innerText = "Mechi";
+        ul.append(li1, li2, li3);
+        list.append(ul);
+      }
+    }
+  </script>
+</html>
+
+

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #main {
+        display: grid;
+        width: 600px;
+        height: 20px;
+        margin-top: 30px;
+        grid-template-columns: repeat(3, 170px);
+        grid-gap: 40px;
+        
+      }
+      #main div{
+            width: 100%;
+            border: 1px solid grey;
+        }
+        #inp-div{
+            display: flex;
+            flex-direction: row;
+            gap: 40px;
+        }
+        
+    </style>
+  </head>
+  <body>
+    <div id="inp-div">
+      <input type="text" placeholder="Enter Door Number" id="num" />
+      <input id="door_name" type="text" placeholder="Enter Door Name" />
+      <input id="door_address" type="text" placeholder="Enter Address" />
+      <input type="checkbox" id="myCheck" onclick="isCheck()" />
+    </div>
+    <div id="container"></div>
+  </body>
+</html>
+<script>
+  const container = document.getElementById("container");
+
+  function isCheck() {
+    // Get the checkbox
+    container.innerHTML = "";
+    var checkBox = document.getElementById("myCheck");
+    var door_num = document.getElementById("num").value;
+    let door_name = document.getElementById("door_name").value;
+    let door_address = document.getElementById("door_address").value;
+
+    let name = document.createElement("div");
+    name.innerText = door_name;
+    let number = document.createElement("div");
+    number.innerText = door_num;
+    let address = document.createElement("div");
+    address.innerText = door_address;
+    let mainDiv = document.createElement('div');
+    mainDiv.id="main"
+    mainDiv.append(name, number, address)
+    container.append(mainDiv);
+    // If the checkbox is checked, display the output text
+    if (checkBox.checked == true) {
+      container.style.display = "block";
+    } else {
+      container.style.display = "none";
+    }
+  }
+</script>
