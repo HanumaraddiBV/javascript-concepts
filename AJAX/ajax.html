@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="makeRequest()">Make a request</button>
+</body>
+<script>
+  
+ var httpRequest;
+  function makeRequest(){
+
+    httpRequest = new XMLHttpRequest();
+
+    if(!httpRequest){
+        alert('Cannot create an XMLHTTP instance')
+        return false
+    }
+
+        httpRequest.onreadystatechange = getContents;
+        httpRequest.open('GET','ajax.html');
+        httpRequest.send()
+  }
+
+  function getContents(){
+    try{
+        if(httpRequest.readyState == XMLHttpRequest.DONE){
+        if(httpRequest.status == 200){
+            alert(httpRequest.responseText)
+        }else{
+            alert('There was a problem with the request.');
+        }
+    }
+    } catch(e){
+        alert(e.description)
+    }
+    
+  }
+
+
+function fetchData(){
+    console.log('fetching..');
+    let xhr =  new XMLHttpRequest();
+    xhr.open("GET","db.json",true);
+
+    xhr.onload = function(){
+        displayData(xhr.response)
+    }
+    xhr.send()
+}
+function displayData(text){
+    alert(text)
+
+}
+fetchData()
+
+
+function fetchTextData(){
+    console.log('fetching..');
+    let txt =  new XMLHttpRequest();
+    txt.open("GET","text.txt",true);
+
+    txt.onload = function(){
+        displayData(txt.response)
+    }
+    txt.send()
+}
+function displayData(text){
+    alert(text)
+
+}
+fetchTextData()
+
+//reconcillation
+//vDOM
+//diffing algo
+//shadow dom and VDOM
+
+// List a order item or un order element using create element
+// 3 text boxes using create element
+
+</script>
+</html>
