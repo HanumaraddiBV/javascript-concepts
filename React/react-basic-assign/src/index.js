@@ -73,3 +73,7 @@ ReactDOM.render(
   txtBoxDiv, //what
   document.getElementById("root")
 );
+
+
+//props.children
+//props drilling
