@@ -1,0 +1,86 @@
+ <-- Components Based Architecture -->
+
+  1. Components are building blocks of React
+  2. It is a collection of HTML, Css and javascript
+  3. Components Can be written in pure javascript or jsx.
+
+  <-- webpack-->
+   webpack is popular module bundling system built on top of Nodejs. It can handle not only the minification of javascript and css files, but also other assets such as image files through the use of plugins
+
+   <--- Creating React app with help of npm command line utility
+   1. npx create-react-app myapp
+   2. yarn create vite
+
+   <-- JSX -->
+   JSx is XML- like syntax extension for ECMAScript .Basically it provides syntactic sugar for the React createElement() function, giving us the expressiveness of javascript along with HTML like template syntax
+
+
+   <-- VDOM -->
+   VDOM is a copy of Real dom. Basically it follows on three steps
+
+   1. Whenever any  underlying data is changed, the entire UI is re-render in VDOM representation
+   2. The difference between the provides DOM representation and the new one is calculated
+   3. Once the calculation are done the Real DOM will be updated with the only thing that have actually changed 
+
+
+
+   Reconciliation :-  When a Components props are state changes, React decides whether an actual DOM update is necessary by comparing newly returned element with the previously rendered one. If they are not equal , React will updated the DOM. This process is call Reconciliation
+
+   Diffing algo :-  
+     Diffing is a heuristic algorithm based on two assumption, Two elements of different types will be produce different tree. the developer hint at what elements will stable remain across render with a key props
+
+
+   Synthetic Events :-
+      event handlers will be passed instances of syntacticEvent, a cross-browser wrapper around browser native event. It has the same interface as the browser native event , including stopPropagation() and preventDefault(), except the event works identically across all the browser
+
+      example -->
+        function checking(){
+            return (
+                <input onFocus={(e)=> {console.log('focused on input')}} placeholder="onFocus is triggered when you click on this input box">
+            )
+        }
+
+
+   
+
+     NPX VS NPM :-
+
+        1. NPX install packages locally
+        2. NPM used to install packages globally and locally
+
+
+    Prop drilling :-
+      prop drilling is the unofficial term for passing data through several nested children components, in a bid to deliver this data to deeply-nested component.
+
+
+    Lazy loading :-
+
+      1. React.lazy()  --> lets you define a component that is loaded dynamically. It help reduce the bundle size to delay loading components that aren't used during initial render
+
+       example -->
+         const component = React.lazy(()=> import('./reactComponents.txt'));
+
+      2. React.Suspense -->
+
+
+          example -->
+             const OtherComponent = React.lazy(() => import('./OtherComponent'));
+
+                        function MyComponent() {
+                        return (
+                            // Displays <Spinner> until OtherComponent loads
+                            <React.Suspense fallback={<Spinner />}>
+                            <div>
+                                <OtherComponent />
+                            </div>
+                            </React.Suspense>
+                        );
+                        }
+        Note :- rendering lazy components requires that there’s a <React.Suspense> component higher in the rendering tree. This is how you specify a loading indicator.
+
+
+    
+
+
+    
+
