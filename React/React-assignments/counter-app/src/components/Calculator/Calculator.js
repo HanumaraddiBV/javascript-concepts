@@ -17,6 +17,7 @@ export default class Calculator extends Component {
         this.setState({res: Number(a)*Number(b)})
       }else{
         this.setState({res: Number(a)/Number(b)})
+   
       }
   }
   

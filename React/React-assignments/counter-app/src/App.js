@@ -9,7 +9,7 @@ import Parent from './components/splitComponent/parent';
 function App() {
   return (
     <div className="App">
-
+     <MainData />
      <CalcParent/>
    
     </div>
