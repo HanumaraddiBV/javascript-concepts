@@ -7,8 +7,10 @@ export default class SyntheticEvent extends Component {
             name: ''
         }
     }
+    
+
     handleClick = ()=>{
-       this.state.name.length > 0 ? alert(`${this.state.name}`) : alert('PleaseType something')
+       this.state.name.length > 0 ? alert(`${this.state.name}`) : alert('Please Type something')
     }
   render() {
     return (
