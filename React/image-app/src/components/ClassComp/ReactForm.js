@@ -16,26 +16,26 @@ export class ReactForm extends Component {
     this.setState((prevState)=> ({
         user: {...prevState.user, name: value}
     }));
-   console.log("----",this.state.user)
+  
   };
   changeCity = (e) => {
     const {value} = e.target;
     this.setState((prevState)=> ({
         user: {...prevState.user, city: value}
     }));
-    console.log("----",this.state.user)
+  
   };
   changeAge = (e) => {
     const {value} = e.target;
     this.setState((prevState)=> ({
         user: {...prevState.user, age: value}
     }));
-    console.log("----",this.state.user)
+  
   };
   onSubmit = (e) => {
     e.preventDefault()
-    let res = this.state.user
-    console.log('ans:', res)
+    // let res = this.state.user
+    console.log('ans:', this.state.user)
   };
   clear = () => {
     this.setState({
@@ -50,7 +50,7 @@ export class ReactForm extends Component {
 
     return (
       <div>
-      <form>
+      <form onSubmit={this.onSubmit}>
     
         Name:{" "}
         <Input
@@ -66,7 +66,7 @@ export class ReactForm extends Component {
           name={"cityBox"}
           val={this.state.user.city}
         />
-        <Button label={"submit"} formAction={this.onSubmit} />
+        <Button label={"submit"} type='submit' />
         <Button label={"clear"} formAction={this.clear} />
         </form>
       </div>
