@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { Component } from 'react'
 import UserContextProvider from '../Users/UserContextProvider';
 import { ProductProvider } from './ProductContext';
-import ProductDisplay from './ProductDisplay';
+// import ProductDisplay from './ProductDisplay';
 
 export default class ProductConetxtProvider extends Component {
 constructor(props){

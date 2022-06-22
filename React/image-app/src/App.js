@@ -14,6 +14,7 @@ import TwoCounterComp from './components/FunctionComponents/TwoCounterComp';
 import UserCredential from './components/FunctionComponents/UserCredential';
 import ProductConetxtProvider from './components/FunctionComponents/Products/ProductConetxtProvider';
 import UserContextProvider from './components/FunctionComponents/Users/UserContextProvider';
+import FormContainer from './components/MultipleFormComponents/FormContainer';
 
 function App() {
   return (
@@ -30,8 +31,9 @@ function App() {
      {/* <IncCount/> */}
      {/* <TwoCounterComp/> */}
      {/* <UserCredential/> */}
-     <ProductConetxtProvider/>
+     {/* <ProductConetxtProvider/> */}
      {/* <UserContextProvider/> */}
+     <FormContainer/>
       </div>
   );
 }

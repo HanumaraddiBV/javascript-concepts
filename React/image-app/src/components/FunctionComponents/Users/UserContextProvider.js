@@ -25,7 +25,7 @@ export default class UserContextProvider extends Component {
   }
   render() {
       this.state.productList = this.context;
-      console.log("iii", this.state.productList);
+      // console.log("iii", this.state.productList);
    
     return (
       <>
