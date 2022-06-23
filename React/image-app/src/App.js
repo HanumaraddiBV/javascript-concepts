@@ -15,6 +15,9 @@ import UserCredential from './components/FunctionComponents/UserCredential';
 import ProductConetxtProvider from './components/FunctionComponents/Products/ProductConetxtProvider';
 import UserContextProvider from './components/FunctionComponents/Users/UserContextProvider';
 import FormContainer from './components/MultipleFormComponents/FormContainer';
+import { UseReducerExa1 } from './components/Reducer/UseReducerExa1';
+import { UseReducerExp2 } from './components/Reducer/UseReducerExp2';
+import { UseReducerAxios } from './components/Reducer/UseReducerAxios';
 
 function App() {
   return (
@@ -33,7 +36,10 @@ function App() {
      {/* <UserCredential/> */}
      {/* <ProductConetxtProvider/> */}
      {/* <UserContextProvider/> */}
-     <FormContainer/>
+     {/* <FormContainer/> */}
+     {/* <UseReducerExa1/> */}
+     {/* <UseReducerExp2/> */}
+     <UseReducerAxios/>
       </div>
   );
 }
