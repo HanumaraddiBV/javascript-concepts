@@ -47,6 +47,7 @@ export const UseMemoAndCallback = () => {
         <button onClick={handleCount}>Increase</button>
         <h2> Calculation</h2>
         {calculation}
+
       </div>
 
       <hr></hr>
