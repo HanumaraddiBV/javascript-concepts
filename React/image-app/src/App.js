@@ -18,6 +18,10 @@ import FormContainer from './components/MultipleFormComponents/FormContainer';
 import { UseReducerExa1 } from './components/Reducer/UseReducerExa1';
 import { UseReducerExp2 } from './components/Reducer/UseReducerExp2';
 import { UseReducerAxios } from './components/Reducer/UseReducerAxios';
+import { UseRefExample } from './components/UseRef/UseRefExample';
+import CreateRefComp from './components/UseRef/CreateRefComp';
+import { UseMemoAndCallback } from './components/MemoAndCallback/UseMemoAndCallback';
+import ImageUpload from './components/UseRef/ImageUpload';
 
 function App() {
   return (
@@ -39,7 +43,11 @@ function App() {
      {/* <FormContainer/> */}
      {/* <UseReducerExa1/> */}
      {/* <UseReducerExp2/> */}
-     <UseReducerAxios/>
+     {/* <UseReducerAxios/> */}
+     {/* <UseRefExample/> */}
+     {/* <CreateRefComp/> */}
+     <UseMemoAndCallback/>
+     {/* <ImageUpload/> */}
       </div>
   );
 }
