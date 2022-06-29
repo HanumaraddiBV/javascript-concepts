@@ -43,7 +43,7 @@ class Products extends Component {
           </li>
         </ul>
         <Switch>
-          <Route path={`${path}`} component={Categories} />
+          <Route path={`${path}/categories`} component={Categories} />
         </Switch>
       </div>
     );

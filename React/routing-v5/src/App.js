@@ -8,6 +8,7 @@ import Product from './routing/QuerryParams';
 import QuerryParams from './routing/QuerryParams';
 import UseParam from './routing/UseParam';
 import NestingRouting from './routing/NestingRouting';
+import NestingWithJson from './routing/NestingWithJson';
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
      {/* <NoMatch/> */}
      {/* <QuerryParams/> */}
      {/* <UseParam/> */}
-     <NestingRouting/>
+     {/* <NestingRouting/> */}
+     <NestingWithJson/>
     </div>
   );
 }
