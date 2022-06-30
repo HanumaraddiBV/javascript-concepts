@@ -9,6 +9,8 @@ import QuerryParams from './routing/QuerryParams';
 import UseParam from './routing/UseParam';
 import NestingRouting from './routing/NestingRouting';
 import NestingWithJson from './routing/NestingWithJson';
+import TonyStark from './components/HOC/TonyStark';
+import WarMachine from './components/HOC/WarMachine';
 
 function App() {
   return (
@@ -19,7 +21,9 @@ function App() {
      {/* <QuerryParams/> */}
      {/* <UseParam/> */}
      {/* <NestingRouting/> */}
-     <NestingWithJson/>
+     {/* <NestingWithJson/> */}
+     <TonyStark/>
+     <WarMachine/>
     </div>
   );
 }

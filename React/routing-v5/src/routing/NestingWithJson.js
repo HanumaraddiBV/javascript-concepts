@@ -34,9 +34,6 @@ class UserPage extends Component {
         <div>
           <ul>
             {user.tabs.map((tab, ind) => {
-              {
-                /* console.log('tab:', tab) */
-              }
               return (
                 <li key={ind}>
                   <Link to={`${url}/tab/${tab.name}`}>{tab.name}</Link>
