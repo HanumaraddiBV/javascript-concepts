@@ -1,48 +1,109 @@
-import React, { useContext, useState } from "react";
+import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import { Button } from "./Button";
-import FormContext from "./FormParentContext";
+import { FormProvider } from "./FormParentContext";
+import validator from "validator";
 import Input from "./Input";
+import { Select } from "./Select";
+import Login from "./Login";
 
-export const FormUserData = () => {
-  const userData = useContext(FormContext);
-  const [userInfo, setUserInfo] = useState({
-    mobile: "",
-    captcha: (Math.random() * 10000).toFixed(0),
-    mobSubmit: false,
-    ...userData,
-  });
-  const handleChange = (e) => {
+export default class FormParent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: {
+        name: "",
+        city: "",
+        email: "",
+        password: "",
+        cityOptions: ["Delhi", "Bangalore", "Pune", "Gadag"],
+      },
+      userDetails: "",
+    };
+  }
+  handleChange = (e) => {
     const { name, value } = e.target;
 
-    setUserInfo({ ...userInfo, [name]: value });
+    // this.setState({ ...this.state, [name]: value }, () =>
+    //   console.log(this.state)
+    // );
+    this.setState((prevState) => ({
+      ...prevState,
+      user: { ...prevState.user, [name]: value },
+    }));
   };
-  const handleClick = () => {
-    setUserInfo({ ...userInfo, mobSubmit: true });
+  handleClick = () => {
+    if (
+      this.state.user.name.length > 0 &&
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(\W|_)).{5,}$/.test(
+        this.state.user.password
+      ) &&
+      validator.isEmail(this.state.user.email)
+    ) {
+      alert(`${this.state.user.name} You have successfully login`);
+      this.setState(
+        (prevState) => ({
+          ...prevState,
+          userDetails: prevState.user,
+        }),
+        () => console.log(this.state)
+      );
+    } else {
+      alert("Please check properly your missing some credentials");
+    }
   };
 
-  return (
-    <>
-      {!userInfo.nxtButton && !userInfo.mobSubmit && (
+  render() {
+    // console.log(this.props)
+    return (
+      <>
         <div>
           <Input
             inputType={"text"}
-            name={"mobile"}
-            title={"Mobile No "}
-            placeholder={"Enter Your Mobile Number"}
-            onChange={handleChange}
+            name={"name"}
+            title={"Name"}
+            placeholder={"Enter Your name"}
+            onChange={this.handleChange}
           />
-          <h3>{userInfo.captcha}</h3>
-          <Button title={"Submit"} action={handleClick} />
+          <Input
+            inputType={"text"}
+            name={"email"}
+            title={"Email"}
+            placeholder={"Enter Your email"}
+            onChange={this.handleChange}
+          />
+          <Input
+            inputType={"password"}
+            name={"password"}
+            title={"Password"}
+            placeholder={"Enter Your password"}
+            onChange={this.handleChange}
+          />
+
+          <Select
+            title={"City"}
+            name={"city"}
+            options={this.state.user.cityOptions}
+            value={this.state.user.city}
+            onChange={this.handleChange}
+            placeholder={"Select City"}
+          />
+
+          <Button title={"Submit"} action={this.handleClick} />
         </div>
-      )}
-      {userInfo.mobSubmit && (
-        <div>
-          <h3>{userInfo.name}</h3>
-          <h3>{userInfo.email}</h3>s
-          <h3>{userInfo.city}</h3>
-          <h3>{userInfo.mobile}</h3>
-        </div>
-      )}
-    </>
-  );
+
+        <FormProvider value={this.state.userDetails} >
+          <Login data={this.props}/>
+        </FormProvider>
+      </>
+    );
+  }
+}
+
+export const fakeAuth = {
+  isAuthenticated: false,
+  authenticate(cb) {
+    this.isAuthenticated = true;
+    setTimeout(cb, 100);
+  },
 };

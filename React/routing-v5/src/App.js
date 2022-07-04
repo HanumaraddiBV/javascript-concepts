@@ -12,6 +12,8 @@ import NestingWithJson from './routing/NestingWithJson';
 import TonyStark from './components/HOC/TonyStark';
 import WarMachine from './components/HOC/WarMachine';
 import { NavigationMenu } from './components/PrivateRouting/NavigationMenu';
+import FormParent from './components/FormWithRouting/FormUserData';
+import { FormNavigationMenu } from './components/FormWithRouting/NavigationMenu';
 
 function App() {
   return (
@@ -25,7 +27,9 @@ function App() {
      {/* <NestingWithJson/> */}
      {/* <TonyStark/> */}
      {/* <WarMachine/> */}
-     <NavigationMenu/>
+     {/* <NavigationMenu/> */}
+     {/* <FormParent/> */}
+    <FormNavigationMenu/>
     </div>
   );
 }
