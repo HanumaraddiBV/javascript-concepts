@@ -9,42 +9,52 @@ class Login extends React.Component {
 
     this.state = {
       redirectToReferrer: false,
+      admin:false
     };
   }
 
-  componentDidMount() {
-    
-  }
+  componentDidMount() {}
   login = () => {
     const userData = this.context;
     console.log("userData:", userData);
-    if (userData) {
+    if (
+      userData.name == "admin" &&
+      userData.password == "8722005386@Hn"
+    ) {
+      fakeAuth.authenticate(() => {
+        this.setState({...this.state,admin: true });
+      });
+    } else if(userData.name !== 'admin') {
       fakeAuth.authenticate(() => {
         this.setState({ redirectToReferrer: true });
       });
-    } else {
+    }else{
       fakeAuth.authenticate(() => {
         this.setState({ redirectToReferrer: false });
       });
     }
   };
   render() {
-    console.log(this.props);
+    console.log(this.state);
 
     const { from } = this.props.data.location.state || {
       from: { pathname: "/" },
     };
-      console.log('from:', from)
-    const { redirectToReferrer } = this.state;
+    console.log("from:", from);
+    const { redirectToReferrer, admin } = this.state;
 
     if (redirectToReferrer) {
-      return <Redirect to={from} />;
+      return <Redirect to='/' />;
+    }
+    if(admin){
+      return <Redirect to='/admin'/>
     }
 
-    return <>
-   
+    return (
+      <>
         <button onClick={this.login}>Log in</button>
-    </>;
+      </>
+    );
   }
 }
 
