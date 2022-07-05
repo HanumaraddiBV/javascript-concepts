@@ -4,50 +4,48 @@ import FormContext, { FormConsumer } from "./FormParentContext";
 
 class Login extends React.Component {
   static contextType = FormContext;
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       redirectToReferrer: false,
-      admin:false
+      admin: false,
     };
   }
 
-  componentDidMount() {}
   login = () => {
     const userData = this.context;
-    console.log("userData:", userData);
-    if (
-      userData.name == "admin" &&
-      userData.password == "8722005386@Hn"
-    ) {
+    // console.log("userData:", userData);
+    if (userData.name == "admin" && userData.password == "8722005386@Hn") {
+     
       fakeAuth.authenticate(() => {
-        this.setState({...this.state,admin: true });
+        this.setState({ ...this.state, admin: true });
       });
-    } else if(userData.name !== 'admin') {
+    } else if (userData.name !== "admin") {
+     
       fakeAuth.authenticate(() => {
         this.setState({ redirectToReferrer: true });
       });
-    }else{
+    } else {
       fakeAuth.authenticate(() => {
         this.setState({ redirectToReferrer: false });
       });
     }
   };
   render() {
-    console.log(this.state);
+    // console.log(this.state);
 
     const { from } = this.props.data.location.state || {
       from: { pathname: "/" },
     };
-    console.log("from:", from);
+    // console.log("from:", from);
     const { redirectToReferrer, admin } = this.state;
 
     if (redirectToReferrer) {
-      return <Redirect to='/' />;
+      return <Redirect to="/" />;
     }
-    if(admin){
-      return <Redirect to='/admin'/>
+    if (admin) {
+      return <Redirect to="/admin" />;
     }
 
     return (
@@ -64,7 +62,7 @@ export const fakeAuth = {
   isAuthenticated: false,
   authenticate(cb) {
     this.isAuthenticated = true;
-    setTimeout(cb, 100);
+    setTimeout(cb, 5000);
   },
 };
 

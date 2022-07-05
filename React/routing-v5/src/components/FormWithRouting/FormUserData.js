@@ -19,6 +19,7 @@ export default class FormParent extends Component {
         cityOptions: ["Delhi", "Bangalore", "Pune", "Gadag"],
       },
       userDetails: "",
+      userLogin:false
     };
   }
   handleChange = (e) => {
@@ -41,13 +42,20 @@ export default class FormParent extends Component {
       validator.isEmail(this.state.user.email)
     ) {
       alert(`${this.state.user.name} You have successfully login`);
+      // fakeAuth.isAuthenticated = true;
       this.setState(
         (prevState) => ({
           ...prevState,
           userDetails: prevState.user,
-        }),
-        () => console.log(this.state)
+        })
       );
+      this.setState(
+        (prevState) => ({
+          ...prevState,
+          userLogin: true,
+        })
+      );
+      
     } else {
       alert("Please check properly your missing some credentials");
     }
@@ -92,18 +100,11 @@ export default class FormParent extends Component {
           <Button title={"Submit"} action={this.handleClick} />
         </div>
 
-        <FormProvider value={this.state.userDetails} >
-          <Login data={this.props}/>
+        <FormProvider value={this.state.userDetails}>
+          <Login data={this.props} />
         </FormProvider>
       </>
     );
   }
 }
 
-export const fakeAuth = {
-  isAuthenticated: false,
-  authenticate(cb) {
-    this.isAuthenticated = true;
-    setTimeout(cb, 100);
-  },
-};
