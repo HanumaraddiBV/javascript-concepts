@@ -1,0 +1,7 @@
+{
+    "lang" : {
+        "Hello": "你好 ！！！歡迎使用 react-i18next 做出反應",
+        "description": "你好嗎雷迪",
+        "GoodMorning": "早上好，請喝杯咖啡！"
+     }
+  }
